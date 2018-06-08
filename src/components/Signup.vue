@@ -7,7 +7,7 @@
   
       <div class="loginPanel">
         <div class="brandLogo"></div>
-        <form action="#">
+        <form action="">
           <div class="input-field">
             <input placeholder="first name" v-on:keyup.enter="register" v-model="fname" id="fName" type="text" class="validate">
           </div>
@@ -62,7 +62,16 @@
       }
     },
     methods: {
+      
       register: function() {
+  
+        alert("Hello")
+        if (!this.email || this.ValidateEmail() === false) {
+          this.errormsg = "Enter valid email!"
+          this.haserror = true
+          return false
+        }
+  
         var model = this;
         model.action = "Please wait ..."
   
