@@ -14,7 +14,7 @@
 					<li>
 						<a class="dropdown-button userDP" href="javascript:void(0);" data-activates="dropdown1">
 							<span class="userPic">
-									<img src="../assets/images/user.jpg" />
+									<img src="../assets/images/favicon.png" />
 								</span>
 							<span class="username"></span>
 						</a>
