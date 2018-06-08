@@ -62,10 +62,15 @@
       }
     },
     methods: {
-      
+      ValidateEmail: function() {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
+          return (true)
+        }
+        return (false)
+      },
       register: function() {
-  
-        alert("Hello")
+        this.haserror = false          
+
         if (!this.email || this.ValidateEmail() === false) {
           this.errormsg = "Enter valid email!"
           this.haserror = true

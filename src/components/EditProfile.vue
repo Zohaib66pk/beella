@@ -12,7 +12,7 @@
         <div class="userImage"><a href="#"><i class="right fa fa-pencil"></i></a></div>
         <form action="#">
           <div class="input-field">
-            <input placeholder="email" v-on:keyup.enter="updteprofile" v-model="email" id="email" type="text" class="validate">
+            <input placeholder="email" v-on:keyup.enter="updteprofile" v-model="email" disabled id="email" type="text" class="validate">
           </div>
           <div class="input-field">
             <input placeholder="first name" v-on:keyup.enter="updteprofile" v-model="fname" id="fName" type="text" class="validate">
@@ -72,7 +72,12 @@
       this.initpage()
     },
     methods: {
-  
+      ValidateEmail: function() {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
+          return (true)
+        }
+        return (false)
+      },
       initpage: function() {
         
         if(this.$session.has("userid") == false){
@@ -117,7 +122,7 @@
       updteprofile: function() {
   
         this.haserror = false
-        
+
         var model = this
         model.action = "Please wait"
         let token = 'Bearer ' + this.$session.get("token")

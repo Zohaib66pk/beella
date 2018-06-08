@@ -75,6 +75,7 @@
       this.initpage()
     },
     methods: {
+      
       initpage: function() {
 
         if(this.$session.has("userid") == false){
