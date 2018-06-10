@@ -26,8 +26,8 @@
         </div>
       </div>
     </div>
-    <div v-if="islogin">
-      <h4 style="text-align:center;">Welcome</h4>
+    <div v-if="islogin" >
+      <img src="../assets/images/beellaa-msg.png" alt="" width="100%" height="auto">  
     </div>
   </div>
 </template>
@@ -116,4 +116,3 @@
     }
   }
 </script>
-

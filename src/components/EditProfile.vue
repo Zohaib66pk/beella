@@ -12,28 +12,28 @@
         <div class="userImage"><a href="#"><i class="right fa fa-pencil"></i></a></div>
         <form action="#">
           <div class="input-field">
-            <input placeholder="email" v-on:keyup.enter="updteprofile" v-model="email" disabled id="email" type="text" class="validate">
+            <input placeholder="Email" v-on:keyup.enter="updteprofile" v-model="email" disabled id="email" type="text" class="validate">
           </div>
           <div class="input-field">
-            <input placeholder="first name" v-on:keyup.enter="updteprofile" v-model="fname" id="fName" type="text" class="validate">
+            <input placeholder="First name" v-on:keyup.enter="updteprofile" v-model="fname" id="fName" type="text" class="validate">
           </div>
           <div class="input-field">
-            <input placeholder="last name" v-on:keyup.enter="updteprofile" v-model="lname" id="lName" type="text" class="validate">
+            <input placeholder="Last name" v-on:keyup.enter="updteprofile" v-model="lname" id="lName" type="text" class="validate">
           </div>
           <div class="input-field">
-            <input placeholder="phone" v-on:keyup.enter="updteprofile" v-model="phone" id="phone" type="text" class="validate">
+            <input placeholder="Phone" v-on:keyup.enter="updteprofile" v-model="phone" id="phone" type="text" class="validate">
           </div>
           <div class="input-field">
-            <input placeholder="city" v-on:keyup.enter="updteprofile" v-model="city" id="city" type="text" class="validate">
+            <input placeholder="City" v-on:keyup.enter="updteprofile" v-model="city" id="city" type="text" class="validate">
           </div>
           <div class="input-field">
-            <input placeholder="country" v-on:keyup.enter="updteprofile" v-model="country" id="country" type="text" class="validate">
+            <input placeholder="Country" v-on:keyup.enter="updteprofile" v-model="country" id="country" type="text" class="validate">
           </div>
           <div class="input-field">
-            <input placeholder="lattitude" v-on:keyup.enter="updteprofile" v-model="lat" id="lat" type="text" class="validate">
+            <input placeholder="Lattitude" v-on:keyup.enter="updteprofile" v-model="lat" id="lat" type="text" class="validate">
           </div>
           <div class="input-field">
-            <input placeholder="language" v-on:keyup.enter="updteprofile" v-model="lng" id="lng" type="text" class="validate">
+            <input placeholder="Language" v-on:keyup.enter="updteprofile" v-model="lng" id="lng" type="text" class="validate">
           </div>
           <div class="input-field">
             <a v-on:click="updteprofile"  href="javascript:void(0);" class="btn btnPrimary waves-effect waves-light">{{action}}</a>
@@ -72,6 +72,16 @@
       this.initpage()
     },
     methods: {
+       validateNumber () {
+        
+        if(!this.phone || isNaN(this.phone)){
+          this.errormsg = "Inavlid Phone Number!"
+          this.haserror = true
+          return false;
+        }
+
+        return true
+      },
       ValidateEmail: function() {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
           return (true)
@@ -122,6 +132,10 @@
       updteprofile: function() {
   
         this.haserror = false
+
+        if(!this.validateNumber()){
+          return;
+        } 
 
         var model = this
         model.action = "Please wait"

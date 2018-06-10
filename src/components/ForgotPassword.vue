@@ -10,7 +10,7 @@
         <form action="#">
           <p>Please provide a valid recovery email address</p>
           <div class="input-field">
-            <input placeholder="email" id="email" type="text" class="validate">
+            <input placeholder="Email" id="email" type="text" class="validate">
           </div>
           <div class="input-field">
             <a href="#" class="btn btnPrimary waves-effect waves-light">Send recovery email</a>

@@ -13,21 +13,19 @@
           <br />
           <form action="#">
             <div class="input-field">
-              <input placeholder="current password" v-on:keyup.enter="updatepwd" v-model="oldpwd" id="cpwd" type="password" class="validate">
+              <input placeholder="Current password" v-on:keyup.enter="updatepwd" v-model="oldpwd" id="cpwd" type="password" class="validate">
             </div>
             <div class="input-field">
-              <input placeholder="new password" v-on:keyup.enter="updatepwd" v-model="newpwd" id="npwd" type="password" class="validate">
+              <input placeholder="New password" v-on:keyup.enter="updatepwd" v-model="newpwd" id="npwd" type="password" class="validate">
             </div>
             <div class="input-field">
-              <input placeholder="confirm password" v-on:keyup.enter="updatepwd" v-model="confirmpwd" id="conpwd" type="password" class="validate">
+              <input placeholder="Confirm password" v-on:keyup.enter="updatepwd" v-model="confirmpwd" id="conpwd" type="password" class="validate">
             </div>
             <div class="input-field">
               <a v-on:click="updatepwd" href="javascript:void(0);" class="btn btnPrimary waves-effect waves-light">{{action}}</a>
             </div>
           </form>
         </div>
-  
-  
       </div>
     </div>
   </div>

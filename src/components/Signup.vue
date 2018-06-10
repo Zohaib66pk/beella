@@ -9,25 +9,25 @@
         <div class="brandLogo"></div>
         <form action="">
           <div class="input-field">
-            <input placeholder="first name" v-on:keyup.enter="register" v-model="fname" id="fName" type="text" class="validate">
+            <input placeholder="First name" v-on:keyup.enter="register" v-model="fname" id="fName" type="text" class="validate">
           </div>
           <div class="input-field">
-            <input placeholder="last name" v-on:keyup.enter="register" v-model="lname" id="lName" type="text" class="validate">
+            <input placeholder="Last name" v-on:keyup.enter="register" v-model="lname" id="lName" type="text" class="validate">
           </div>
           <div class="input-field">
-            <input placeholder="phone" v-on:keyup.enter="register" v-model="phone" id="phone" type="text" class="validate">
+            <input placeholder="Phone" v-on:keyup.enter="register" v-model="phone" id="phone" type="text" class="validate">
           </div>
           <div class="input-field">
             <input placeholder="User type" v-on:keyup.enter="register" v-model="utype" id="utype" type="text" class="validate">
           </div>
           <div class="input-field">
-            <input placeholder="email" v-on:keyup.enter="register" v-model="email" id="email" type="text" class="validate">
+            <input placeholder="Email" v-on:keyup.enter="register" v-model="email" id="email" type="text" class="validate">
           </div>
           <div class="input-field">
-            <input placeholder="password" v-on:keyup.enter="register" v-model="pwd" id="pwd" type="password" class="validate">
+            <input placeholder="Password" v-on:keyup.enter="register" v-model="pwd" id="pwd" type="password" class="validate">
           </div>
           <div v-if="utype==2" class="input-field">
-            <input placeholder="business name" v-on:keyup.enter="register" v-model="bname" id="bname" type="text" class="validate">
+            <input placeholder="Business name" v-on:keyup.enter="register" v-model="bname" id="bname" type="text" class="validate">
           </div>
           <div class="input-field">
             <a v-on:click="register" href="javascript:void(0);" class="btn btnPrimary waves-effect waves-light">{{action}}</a>
@@ -62,6 +62,16 @@
       }
     },
     methods: {
+      validateNumber () {
+        
+        if(!this.phone || isNaN(this.phone)){
+          this.errormsg = "Inavlid Phone Number!"
+          this.haserror = true
+          return false;
+        }
+
+        return true
+      },
       ValidateEmail: function() {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
           return (true)
@@ -70,6 +80,10 @@
       },
       register: function() {
         this.haserror = false          
+
+        if(!this.validateNumber()){
+          return;
+        } 
 
         if (!this.email || this.ValidateEmail() === false) {
           this.errormsg = "Enter valid email!"
