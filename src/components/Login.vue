@@ -58,9 +58,25 @@
         }
       
       },
-  
+      
+      ValidateEmail: function() {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
+          return (true)
+        }
+        return (false)
+      },
+
       login: function() {
-  
+        
+        this.haserror = false
+        
+        if(!this.email || !this.password || !this.ValidateEmail()){
+          
+          this.errormsg = "Please enter valid email or password!"
+          this.haserror = true
+          return 
+        }
+
         var model = this;
         model.action = "Please wait ..."
   
